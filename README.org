@@ -1,4 +1,38 @@
-#+title: Readme
+#+title: Reverse Jeopardy: Neural Question Generation
 
-In my introduction to NLP course, we fine-trained T5 to create Jeopardy-style Clues from regular statements and questions.
+** Overview
+Fine-tuned transformer models (T5, DialoGPT) to generate Jeopardy-style clues from minimal input—inverting the traditional question-answering paradigm. This project explores the challenging task of generating factual, answerable declarative prompts given only a category and target answer.
+
+** Key Technical Contributions
+- *Novel Task Formulation*: Defined question generation with sparse input constraints (category + answer only, no context passage)
+- *Large-Scale Fine-Tuning*: Trained on 127K cleaned Jeopardy entries using Google Colab TPUs
+- *Multi-Model Comparison*: Evaluated T5 (encoder-decoder) vs DialoGPT (decoder-only) architectures
+- *Custom Evaluation Framework*: Designed domain-specific metrics for factuality and answerability
+
+** Technical Stack
+- *Models*: T5-base (222M params), DialoGPT-small/medium
+- *Frameworks*: HuggingFace Transformers, PyTorch Lightning, SimpleT5
+- *Infrastructure*: Google Colab with GPU/TPU acceleration
+- *Data Processing*: Cleaned 217K→127K examples (removed multimedia, wordplay edge cases)
+
+** Results
+- T5 achieved 2.48 factuality / 2.44 answerability (5-point scale)
+- Best performance on geographic entities (5/5 on Lithuania, Uruguay)
+- Identified architectural trade-offs between grammatical fluency and factual accuracy
+- Generated coherent prompts across diverse knowledge domains
+
+** Project Context
+Course project for CPSC 599.27 (Introduction to NLP) at University of Calgary. Completed comprehensive research including data analysis, model training, evaluation methodology design, and formal academic writeup.
+
+** Repository Structure
+- =JeopardyBot.ipynb=: Interactive demo notebook with pre-trained T5 model
+- =JeopardyGPT.ipynb=: DialoGPT fine-tuning pipeline
+- =SimpleT5_TPU.ipynb=: Full T5 training implementation with TPU support
+- =CPSC_599_27_Project_Report.pdf=: Detailed technical report
+
+Other Files:
+- =ElleChatBot.ipynb=: DialoGPT fine-tuned Elle's dialogue in /Legally Blonde (2001)/. 
+
+** References
+Full project report and presentation slides included in repository.
 
