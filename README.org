@@ -1,0 +1,4 @@
+#+title: Readme
+
+In my introduction to NLP course, we fine-trained T5 to create Jeopardy-style Clues from regular statements and questions.
+
